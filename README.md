@@ -8,4 +8,4 @@ However many total wins that player accumlates from the 128 tries are added up a
 A more accurate way to describe the output is to say that the higher number means the most number of previous wins from someone in a similar scenario.
 
 TO USE:
-Download the csv file and change 
+(1) Download the csv file and change line 7 of the code so the program accesses it. (2) The factions are abbreviated to the starting letter of the first two syllables, so type that in exactly when prompted. The map abbreviations are easier to interpret. Make sure to put the players in the correct seating order, the first faction you type will be considered the player with the first turn. (3) The player/faction with the most wins is considered "best". If all factions are at 0 points, it means there have been no similar situations to the one you have put in that have resulted in a win in any of the previous games.
