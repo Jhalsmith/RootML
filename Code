@@ -6,13 +6,12 @@ warnings.filterwarnings(action='ignore', category=UserWarning)
 
 df = pd.read_csv(r"C:\Users\____\OneDrive\Desktop\Root_Predictions_Ticker_Tape.csv")
 
+# Editing the list for usability
 df.pop("Game#")
-
 y = df["W?"].values
 X = df.drop("W?", axis="columns").values
-accuracylist = []
 
-
+# Asking for input
 print("Options: MQ, ER, WL, VG, V2, RF, LZ, UD, CV, KP, LH")
 P1 = str(input("Which faction is the first player (in the turn order) playing as? "))
 P2 = str(input("Which faction is the second player playing as? "))
@@ -21,6 +20,8 @@ P4 = str(input("Which faction is the fourth player playing as? "))
 print("Options: SU, WI, LA, MO")
 Map = input("Which map are you playing with? ")
 
+# Initializing the data frames and accuracy list
+accuracylist = []
 columnlabels = ["PMQ", "PER", "PWL", "PVG", "PV2", "PRF", "PLZ", "PUD", "PCV", "PKP", "PLH",
                 "OMQ", "OER", "OWL", "OVG", "OV2", "ORF", "OLZ", "OUD", "OCV", "OKP", "OLH",
                 "SU", "WI", "LA", "MO", "S1", "S2", "S3", "S4"]
@@ -32,6 +33,9 @@ dfP2 = pd.DataFrame(dataP0, columns= columnlabels)
 dfP3 = pd.DataFrame(dataP0, columns= columnlabels)
 dfP4 = pd.DataFrame(dataP0, columns= columnlabels)
 
+# Creating the two functions we need
+
+# This function edits the player's DataFrame
 def dfedit(yourfaction, O1F, O2F, O3F, MapID, yourdf):
     yourfactionID = "P" + yourfaction
     O1FID = "O" + O1F
@@ -44,6 +48,7 @@ def dfedit(yourfaction, O1F, O2F, O3F, MapID, yourdf):
     yourdf[MapID] = yourdf[MapID].replace([0], 1)
     return yourdf
 
+# This function calculates the total wins based on kNN
 def CountWins(dfPXe) :
     winsSum = []
     for i in range(1, 128) :
@@ -55,22 +60,22 @@ def CountWins(dfPXe) :
             winsSum.append(0)
     return sum(winsSum)
 
-# Player 1
+# Player 1 score
 dfP1e = dfedit(P1, P2, P3, P4, Map, dfP1)
 dfP1e["S1"] = dfP1e["S1"].replace([0], 1)
 print(f"P1 has a score of: {CountWins(dfP1e)} with {P1}")
 
-# Player 2
+# Player 2 score
 dfP2e = dfedit(P2, P1, P3, P4, Map, dfP2)
 dfP2e["S2"] = dfP2e["S2"].replace([0], 1)
 print(f"P2 has a score of: {CountWins(dfP2e)} with {P2}")
 
-# Player 3
+# Player 3 score
 dfP3e = dfedit(P3, P1, P2, P4, Map, dfP3)
 dfP3e["S3"] = dfP3e["S3"].replace([0], 1)
 print(f"P3 has a score of: {CountWins(dfP3e)} with {P3}")
 
-# Player 4
+# Player 4 score
 dfP4e = dfedit(P4, P1, P2, P3, Map, dfP4)
 dfP4e["S4"] = dfP4e["S4"].replace([0], 1)
 print(f"P4 has a score of: {CountWins(dfP4e)} with {P4}")
