@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 import warnings
 warnings.filterwarnings(action='ignore', category=UserWarning)
 
-df = pd.read_csv(r"C:\Users\jhals\OneDrive\Desktop\Root_Predictions_Ticker_Tape.csv")
+df = pd.read_csv(r"C:\Users\____\OneDrive\Desktop\Root_Predictions_Ticker_Tape.csv")
 
 df.pop("Game#")
 
