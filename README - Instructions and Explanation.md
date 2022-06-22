@@ -4,7 +4,7 @@ This code has been a passion project of mine and I hope you will find it interes
 Explanation:
 
 The code predicts both the winner and the final point total for a Root game based purely on the beginning set-up of the game.
-The data I have used for this model is the data kindly provided by LilyG from MakeCraftGames from Rounds 1 & 2 of the 2021 Root Winter Tournament (RWT) organized by GuerricSamplesGames. This leads us to the biggest disclaimer of the model - the model is doing its best to predict based on the players and meta from the 2021 RWT which is different than broader public player base and meta.
+The data I have used for this model are the data kindly provided by LilyG from MakeCraftGames from Rounds 1 & 2 of the 2021 Root Winter Tournament (RWT) organized by GuerricSamplesGames. This leads us to the biggest disclaimer of the model - the model is doing its best to predict based on the players and meta from the 2021 RWT which is different than broader public player base and meta.
 
 Each player in a game is counted as a single obervation (or row) in the data. Thus, there are four observations per game of Root, and 256 total observations in the table. The player's entire set-up situation is marked down in binary in their observation. There are columns for whichever faction they are, and columns for the factions that their opponents are. The player's observation will have a 1 marked down for factions present, and a 0 marked down for factions absent. Likewise, they will recieve a 1 or 0 depending on the map used, and their seating position. 
 
